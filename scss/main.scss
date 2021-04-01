@@ -1,0 +1,168 @@
+@import "global";
+@import "variables";
+@import "bg";
+@import "navbar";
+
+h1 {
+    color: $title-color;
+}
+
+.main-container {
+    position: relative;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+    transition: opacity 0.5s;
+
+    &__content {
+        width: 90%;
+    }
+}
+
+.hide {
+    opacity: 0;
+}
+
+/*About Us*/
+
+.about-us {
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+    }
+
+    &__menu {
+        height: 40px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        &__item {
+            margin: 0 5px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid $secondary-color;
+            background-color: transparent;
+            transition-property: background-color;
+            transition-duration: 0.7s;
+
+            &--active {
+                border: 1px solid $primary-color;
+                background-color: $primary-color-transparent;
+
+                a{
+                    color: $title-color;
+                }
+            }
+
+            &__link {
+                color: $secondary-color;
+            }
+
+
+        }
+    }
+}
+
+/*Text*/
+
+.text-container {
+    background: $primary-color-transparent;
+    border: 1px solid $primary-color;
+    border-bottom: transparent;
+    padding: 15px;
+    color: $title-color;
+    margin-top: 35px;
+
+    p {
+        margin: 20px 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .main-container {
+        top: 0;
+        height: 100vh;
+
+        &__content {
+            display: flex;
+        }
+    }
+
+
+
+    .about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 60%;
+        padding: 0 100px;
+
+        h1 {
+            text-align: left;
+            line-height: 65px;
+
+            &::before {
+                content: '';
+                width: 35px;
+                height: 3px;
+                background: $primary-color;
+                position: absolute;
+            }
+        }
+
+        &__menu {
+            height: auto;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+            &__item {
+                height: 150px;
+                line-height: 150px;
+                margin: 10px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition-property: background-color, border;
+                transition-duration: 0.7s;
+
+                &:hover {
+                    border: 1px solid $primary-color;
+                }
+            }
+        }
+
+    }
+
+    .text-container {
+        width: 40%;
+        margin-top: 80px;
+        overflow-y: scroll;
+        padding: 15px 35px;
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        p {
+            font-size: $s8;
+            letter-spacing: 1px;
+        }
+
+        &::-webkit-scrollbar {
+            transform: translateX(10px);
+            width: 3px;
+            background-color: rgb(49, 49, 49);
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: $primary-color;
+        }
+
+    }
+
+    
+}
